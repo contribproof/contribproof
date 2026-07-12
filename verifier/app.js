@@ -9,7 +9,7 @@
 // that in any documentation calling this "backend-free" — it's frontend-only
 // in the sense of "no server you run," not "no external dependency at all."
 
-const RPC_ENDPOINT = "REPLACE_WITH_A_DAS_CAPABLE_RPC_URL"; // e.g. a Helius devnet endpoint
+const RPC_ENDPOINT = "REPLACE_WITH_A_DAS_CAPABLE_RPC_URL";
 
 async function dasRequest(method, params) {
   const res = await fetch(RPC_ENDPOINT, {
