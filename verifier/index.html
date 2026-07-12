@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ContribProof Verifier</title>
+<style>
+  :root{
+    --ink:#101B2D; --paper:#F3EEE0; --brass:#C08A3E; --verified:#5C9A78;
+    --muted:#8A93A6; --err:#B85450;
+  }
+  body{
+    background:var(--ink); color:var(--paper);
+    font-family:'IBM Plex Mono', ui-monospace, monospace;
+    max-width:640px; margin:60px auto; padding:0 24px; line-height:1.6;
+  }
+  h1{font-size:20px; margin-bottom:4px;}
+  p.sub{color:var(--muted); font-size:13px; margin-top:0;}
+  input{
+    width:100%; padding:12px 14px; background:transparent; color:var(--paper);
+    border:1px solid var(--muted); border-radius:4px; font-family:inherit; font-size:14px;
+    box-sizing:border-box;
+  }
+  button{
+    margin-top:12px; padding:11px 18px; background:var(--brass); color:var(--ink);
+    border:none; border-radius:4px; font-family:inherit; font-size:13px; cursor:pointer;
+  }
+  button:disabled{opacity:0.5; cursor:not-allowed;}
+  #result{margin-top:28px; padding:18px; border-radius:4px; border:1px solid var(--muted); display:none;}
+  #result.ok{border-color:var(--verified);}
+  #result.fail{border-color:var(--err);}
+  #result pre{white-space:pre-wrap; word-break:break-all; font-size:12px; color:var(--muted); margin-top:10px;}
+  .note{margin-top:40px; font-size:12px; color:var(--muted); border-top:1px solid #2A3A55; padding-top:16px;}
+</style>
+</head>
+<body>
+  <h1>ContribProof Verifier</h1>
+  <p class="sub">Paste a wallet address or credential (asset) ID to check it on-chain.</p>
+
+  <input id="query-input" placeholder="Wallet address or credential ID" />
+  <button id="verify-btn">Verify</button>
+
+  <div id="result"></div>
+
+  <div class="note">
+    STATUS: untested scaffold. This has not been run against a real
+    credential yet, because none have been minted. The RPC endpoint below
+    is a placeholder — see README.md in this folder for why a DAS-capable
+    endpoint is required and what that means for the "no backend" claim in
+    the project's proposal.
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
