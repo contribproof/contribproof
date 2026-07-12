@@ -1,0 +1,23 @@
+name: "ContribProof Issuer"
+description: "Mints an on-chain ContribProof credential when a pull request merges."
+author: "ContribProof"
+
+inputs:
+  cluster:
+    description: "Solana cluster to mint on (devnet, mainnet-beta)."
+    required: false
+    default: "devnet"
+  merkle-tree:
+    description: "Public key of this repo's ContribProof Merkle tree."
+    required: true
+  issuer-authority-keypair:
+    description: "Base58 or JSON-array secret key for the issuer authority, passed via a repo secret. Never commit this."
+    required: true
+  wallet-map-path:
+    description: "Path (relative to repo root) to the JSON file mapping GitHub usernames to Solana wallet addresses."
+    required: false
+    default: ".contribproof/wallets.json"
+
+runs:
+  using: "node20"
+  main: "dist/index.js"
